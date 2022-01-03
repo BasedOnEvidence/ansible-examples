@@ -1,0 +1,15 @@
+- hosts: webservers
+  tasks:
+    - name: update dnf cache
+      ansible.builtin.dnf:
+        update_cache: yes
+      become: yes
+      tags: update
+
+    - name: install git
+      ansible.builtin.dnf:
+        name: git
+        state: present
+        update_cache: no
+      become: yes
+      tags: git

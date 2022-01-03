@@ -1,0 +1,7 @@
+- hosts: webservers
+  tasks:
+    - name: remove git
+      ansible.builtin.dnf:
+        name: git
+        state: absent
+      become: yes
